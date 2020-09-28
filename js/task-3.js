@@ -30,3 +30,5 @@ const elements = images.map(({ url, alt }) => {
 });
 
 galleryEl.insertAdjacentHTML('beforeend', elements.join(''));
+
+galleryEl.classList.add('gallery-container');
