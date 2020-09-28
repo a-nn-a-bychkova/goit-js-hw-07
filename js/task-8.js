@@ -14,48 +14,41 @@
 // Создай функцию destroyBoxes(), которая очищает div#boxes.
 
 const refs = {
-  controlsEl: document.querySelector('#controls'),
-
   inputEl: document.querySelector('#controls>input'),
   btnRender: document.querySelector('#controls>button[data-action="render"]'),
   btnDestroy: document.querySelector('#controls>button[data-action="destroy"]'),
+  boxesEl: document.querySelector('#boxes'),
 };
 
-const boxesEl = document.querySelector('#boxes');
 let numberOfBoxes = 0;
 
-refs.btnRender.addEventListener('click', onRenderClick);
+refs.btnRender.addEventListener('click', createBoxes);
 
-function onRenderClick() {
-  // const box = boxesEl.createEl('div');
+function createBoxes() {
   numberOfBoxes = refs.inputEl.value;
   console.log(numberOfBoxes);
-  const allBoxes = [];
 
-  function appendNCopies(n, original, appendTo) {
-    const box = boxesEl.createEl('div');
-    for (const i = 0; i < n; i += 1) {
-      const divClone = box.cloneNode(true);
-      allBoxes.push(divClone);
+  let boxInitialWidth = 30;
+  let boxInitialHeight = 30;
 
-      // let clone = original.cloneNode(true);
-      // allBoxes.push(clone);
-      // appendTo.appendChild(allBoxes);
-      // console.log(appendTo);
-    }
+  function randColor() {
+    var r = Math.floor(Math.random() * 256),
+      g = Math.floor(Math.random() * 256),
+      b = Math.floor(Math.random() * 256);
+    return '#' + r.toString(16) + g.toString(16) + b.toString(16);
   }
-  appendNCopies(numberOfBoxes, box, boxesEl);
-}
 
-const allBoxes = [];
+  for (let i = 0; i < numberOfBoxes; i++) {
+    let box = document.createElement('div');
+    box.style.width = boxInitialWidth + [i] * 10 + 'px';
+    box.style.height = boxInitialHeight + [i] * 10 + 'px';
+    box.style.backgroundColor = randColor();
+    refs.boxesEl.append(box);
+  }
+}
 
 refs.btnDestroy.addEventListener('click', destroyBoxes);
 
 function destroyBoxes() {
-  boxesEl.innerHTML = '';
+  refs.boxesEl.innerHTML = '';
 }
-// refs.boxesEl.children.classList.add('box');
-
-// btnRender.addEventListener('click', onRenderClick);
-
-// onRenderClick
