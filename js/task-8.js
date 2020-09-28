@@ -41,6 +41,7 @@ function createBoxes() {
   for (let i = 0; i < numberOfBoxes; i++) {
     let box = document.createElement('div');
     box.style.width = boxInitialWidth + [i] * 10 + 'px';
+    console.log(box.style.width);
     box.style.height = boxInitialHeight + [i] * 10 + 'px';
     box.style.backgroundColor = randColor();
     refs.boxesEl.append(box);
