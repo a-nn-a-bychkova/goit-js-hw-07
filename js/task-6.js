@@ -24,7 +24,7 @@ console.log(validationInput.getAttribute('data-length'));
 
 validationInput.onblur = function () {
   let correctLength = parseInt(validationInput.dataset.length);
-  let inputDataLength = parseInt(validationInput.value.length);
+  let inputDataLength = validationInput.value.length;
   console.log(inputDataLength);
 
   if (correctLength === inputDataLength) {
