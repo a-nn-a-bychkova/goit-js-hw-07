@@ -9,5 +9,9 @@ let nameOutput = document.querySelector('#name-output');
 console.log(nameOutput);
 
 nameInput.oninput = function () {
-  nameOutput.innerHTML = nameInput.value;
+  if (nameInput.value.length === 0) {
+    nameOutput.innerHTML = 'Незнакомец';
+  } else {
+    nameOutput.innerHTML = nameInput.value;
+  }
 };
