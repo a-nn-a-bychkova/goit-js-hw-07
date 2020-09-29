@@ -8,6 +8,7 @@ const ingredients = [
 ];
 
 const ul = document.getElementById('ingredients');
+const container = [];
 // ingredients.forEach(ingredient => {
 //   ul.appendChild(
 //     document
@@ -20,5 +21,6 @@ ingredients.forEach(ingredient => {
   const ingredientsNode = document.createElement('li');
   const textIngredient = document.createTextNode(ingredient);
   ingredientsNode.appendChild(textIngredient);
-  document.getElementById('ingredients').appendChild(ingredientsNode);
+  container.push(ingredientsNode);
 });
+ul.append(...container);
