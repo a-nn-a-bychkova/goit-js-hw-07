@@ -9,13 +9,6 @@ const ingredients = [
 
 const ul = document.getElementById('ingredients');
 const container = [];
-// ingredients.forEach(ingredient => {
-//   ul.appendChild(
-//     document
-//       .createElement('li')
-//       .appendChild(document.createTextNode(ingredient)),
-//   );
-// });
 
 ingredients.forEach(ingredient => {
   const ingredientsNode = document.createElement('li');
